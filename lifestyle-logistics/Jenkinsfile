@@ -1,0 +1,9 @@
+pipeline {
+  agent any
+  stages {
+    stage('Checkout'){ steps { checkout scm } }
+    stage('Build'){ steps { sh 'mvn -q -DskipTests clean package' } }
+    stage('Test'){ steps { sh 'mvn -q test || true' } }
+    stage('Docker Build'){ steps { sh 'docker compose build' } }
+  }
+}

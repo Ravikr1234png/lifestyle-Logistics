@@ -1,0 +1,17 @@
+server:
+  port: 8888
+username: root
+password: Ravikr@123#
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        composite:
+          - type: native
+            search-locations: classpath:/config
+          - type: git
+            uri: https://github.com/Ravikr1234png/lifestyle-Logistics.git
+            clone-on-start: true
+            default-label: main

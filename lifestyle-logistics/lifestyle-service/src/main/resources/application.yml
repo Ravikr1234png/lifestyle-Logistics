@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: lifestyle-service
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAPSERVERS:localhost:9092}
+server:
+  port: 8083
+lifestyle:
+  api:
+    url: ${LIFESTYLE_API_URL:http://localhost:3232}

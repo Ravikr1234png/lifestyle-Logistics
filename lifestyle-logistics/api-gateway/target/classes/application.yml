@@ -1,0 +1,28 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: auth
+          uri: ${AUTH_URL:http://localhost:8081}
+          predicates: [ Path=/auth/** ]
+        - id: users
+          uri: ${USER_URL:http://localhost:8082}
+          predicates: [ Path=/users/** ]
+        - id: lifestyle
+          uri: ${LIFESTYLE_URL:http://localhost:8083}
+          predicates: [ Path=/lifestyles/** ]
+        - id: favorites
+          uri: ${FAVORITE_URL:http://localhost:8084}
+          predicates: [ Path=/favorites/** ]
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: '*'
+            allowedHeaders: '*'
+            allowedMethods: '*'
+jwt:
+  secret: ${JWT_SECRET:supersecretjwt}
