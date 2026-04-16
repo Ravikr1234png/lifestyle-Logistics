@@ -4,7 +4,8 @@ import com.ravi.lifestyle.fav.model.FavoriteItem; import com.ravi.lifestyle.fav.
 @RestController
 @RequestMapping("/favorites")
 public class FavoriteController {
-  private final FavoriteService service; public FavoriteController(FavoriteService service){
+  private final FavoriteService service;
+  public FavoriteController(FavoriteService service){
     this.service=service;
   }
   @GetMapping
